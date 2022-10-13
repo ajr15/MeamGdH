@@ -1,0 +1,371 @@
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D178  pw_restart_mp_pw_         218  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               000000000054018F  run_pwscf_                158  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F4488046555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: No such file or directory
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D178  pw_restart_mp_pw_         218  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               000000000054018F  run_pwscf_                158  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007FCE4A295555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[48328,1],9]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2240.save/K00017': Directory not empty
+rm: cannot remove '/home/shaharpit/tmp/2240.save/K00018': Directory not empty
+rm: cannot remove '/home/shaharpit/tmp/2240.save/K00010test0': No such file or directory
+rm: cannot remove '/home/shaharpit/tmp/2240.save/K00007test0': No such file or directory
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D178  pw_restart_mp_pw_         218  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               00000000005400EA  run_pwscf_                201  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F17457B8555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[48015,1],9]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2241.save/K00026': Directory not empty
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F5B53CDE555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F2599CBC555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F5A73DF0555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[48014,1],7]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2242.save/K00020test0': No such file or directory
+rm: cannot remove '/home/shaharpit/tmp/2242.update': No such file or directory
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D178  pw_restart_mp_pw_         218  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               00000000005400EA  run_pwscf_                201  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007FBB9A4E7555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D178  pw_restart_mp_pw_         218  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               00000000005400EA  run_pwscf_                201  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F7A85089555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[9601,1],5]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2245.save': Directory not empty
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F5BF86FF555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F8A7FBBA555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[9610,1],9]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2246.save': Directory not empty
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D178  pw_restart_mp_pw_         218  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               00000000005400EA  run_pwscf_                201  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F7CAFECB555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[7146,1],12]
+  Exit code:    28
+--------------------------------------------------------------------------
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D1DE  pw_restart_mp_pw_         232  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               00000000005400EA  run_pwscf_                201  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F921B85B555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56615,1],8]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2249.save/K00010test0': No such file or directory
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F8004376555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007FF35EFC7555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F6C9C546555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[7148,1],5]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2248.save': Directory not empty
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               000000000052D1DE  pw_restart_mp_pw_         232  pw_restart.f90
+pw.x               000000000052CD10  punch_                    113  punch.f90
+pw.x               00000000005400EA  run_pwscf_                201  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F6A1BA9A555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[59546,1],9]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2243.save/K00017test0': No such file or directory
+forrtl: No such file or directory
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit 4, file "Unknown"
+Image              PC                Routine            Line        Source             
+pw.x               0000000000B6DF5E  Unknown               Unknown  Unknown
+pw.x               0000000000B605F6  Unknown               Unknown  Unknown
+pw.x               0000000000802B56  io_files_mp_check         165  io_files.f90
+pw.x               00000000009254EA  xml_io_base_mp_cr          78  xml_io_base.f90
+pw.x               00000000004BB225  io_rho_xml_mp_wri         213  io_rho_xml.f90
+pw.x               000000000040B2D6  electrons_scf_            828  electrons.f90
+pw.x               0000000000408E99  electrons_                140  electrons.f90
+pw.x               000000000053FFD5  run_pwscf_                 99  run_pwscf.f90
+pw.x               0000000000406EEE  MAIN__                     56  pwscf.f90
+pw.x               0000000000406C1E  Unknown               Unknown  Unknown
+libc-2.17.so       00007F779ECE2555  __libc_start_main     Unknown  Unknown
+pw.x               0000000000406B29  Unknown               Unknown  Unknown
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[59547,1],9]
+  Exit code:    28
+--------------------------------------------------------------------------
+rm: cannot remove '/home/shaharpit/tmp/2244.save': Directory not empty

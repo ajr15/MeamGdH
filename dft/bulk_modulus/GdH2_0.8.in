@@ -1,0 +1,54 @@
+&CONTROL
+	pseudo_dir='/home/shaharpit/AcHProject/meam_fit/dft/qe_potentials',
+	outdir='/home/shaharpit/tmp',
+	calculation='relax',
+	nstep=150,
+	prefix=2245,
+/
+
+&SYSTEM
+	occupations='smearing',
+	degauss=0.01,
+	ecutwfc=50,
+	ibrav=0,
+	nat=12,
+	ntyp=2,
+/
+
+&ELECTRONS
+	adaptive_thr=.TRUE,
+	electron_maxstep=500,
+/
+
+&IONS
+	ion_dynamics='bfgs',
+/
+
+&CELL
+/
+
+ATOMIC_SPECIES
+Gd 157.25 Gd.GGA-PBE-paw-v1.0.UPF
+H 1.00794 H.pbe-rrkjus_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS crystal
+Gd 0.0 0.0 0.0
+Gd -0.0 0.5 0.5
+Gd 0.5 0.0 0.5
+Gd 0.5 0.5 0.0
+H 0.25 0.25 0.25
+H 0.25 0.75 0.75
+H 0.75 0.25 0.75
+H 0.75 0.75 0.25
+H 0.25 0.75 0.25
+H 0.25 0.25 0.75
+H 0.75 0.75 0.75
+H 0.75 0.25 0.25
+
+K_POINTS automatic
+	4 4 4 0 0 0 
+
+CELL_PARAMETERS {angstrom}
+	4.9229 0.0 0.0 
+	0.0 4.9229 0.0 
+	0.0 0.0 4.9229 

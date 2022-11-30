@@ -7,22 +7,24 @@ from torinax.utils.pymatgen import pmt_struct_to_structure
 
 kwdict = {
   "CONTROL": {
-    	"pseudo_dir": '/home/shaharpit/AcHProject/meam_fit/dft/qe_potentials',
+    	"pseudo_dir": '/home/shaharpit/MeamGdH/dft/qe_potentials/',
     	"outdir": '/home/shaharpit/tmp',
-    	"calculation": 'relax',
+    	"calculation": 'vc-relax',
       "nstep": 150
       },
   "SYSTEM": {
   	  "occupations": 'smearing',
   	  "degauss": 0.01,
-      "ecutwfc": 50
+      "ecutwfc": 50,
+      "lspinorb": True,
+      "noncolin": True
      },
   "IONS": {
       "ion_dynamics": 'bfgs',
      },
   "ATOMIC_SPECIES": {
-      "Gd": "Gd.pbe-spdn-kjpaw_psl.1.0.0.UPF",
-      "H": "H.pbe-kjpaw_psl.1.0.0.UPF",
+      "Gd": "Gd.rel-pbe-spdn-kjpaw_psl.1.0.0.UPF",
+      "H": "H.pbe-kjpaw_psl.0.1.UPF",
       },
   'ELECTRONS': {
       'adaptive_thr': True,
@@ -36,22 +38,11 @@ kwdict = {
       }
   }
 
-def make_inputs(struct: Structure, kwds_dict: dict, prefix: str):
-    V = struct.volume
-    # writing inputs with scaling
-    scalars = [0.8, 0.9, 1, 1.1, 1.2]
-    for s in scalars:
-        print("Writing with {}".format(s))
-        struct.scale_lattice(s * V)
-        infile = QeIn("./{}_{}.in".format(prefix, s))
-        infile.write_file(pmt_struct_to_structure(struct), kwds_dict)
-    print("ALL DONE !")
-
 
 if __name__ == "__main__":
     for fname in os.listdir("../base_structs"):
         if fname.endswith(".cif") and not fname.startswith("naked"):
-            name = os.path.split(fname)[0]
+            name = os.path.splitext(fname)[0]
             print(name)
             struct = Structure.from_file(os.path.join("../base_structs", fname))
             infile = QeIn("./{}.in".format(name))

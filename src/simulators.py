@@ -1,12 +1,14 @@
 from typing import List, Union, Dict
 import os
 import numpy as np
+from multiprocessing import Pool
 from copy import copy
 from .potentials import EmbeddedAtomElementPotential, EmbeddedAtomInteractionPotential
 from .Variable import Variable
-from ..config import torinax
+from .utils import calculate_relative_energies
+import sys; sys.path.append("/home/shaharpit/Personal/TorinaX")
 from torinax.io import LammpsIn
-from torinax.core import Structure
+from torinax.base import Structure
 
 
 class Simulator:
@@ -17,11 +19,17 @@ class Simulator:
         - parent_dir (str): path to the simulation directory (place for input and output files)
         - parameters (dict): simulation parameter dictionary, defines ALL the parameters required for simulation"""
 
-    def __init__(self, potentials: List[Union[EmbeddedAtomElementPotential, EmbeddedAtomInteractionPotential]]):
+    def __init__(self, potentials: List[Union[EmbeddedAtomElementPotential, EmbeddedAtomInteractionPotential]], nworkers: int=10):
         self.potentials = potentials
+        self.nworkers = nworkers
 
-    def single_run(self, struct: Structure, prefix: str, parent_dir: str):
+    @staticmethod
+    def single_run(struct: Structure, prefix: str, parent_dir: str):
         """Running the simulation for a given structure"""
+        # getting the current directory
+        current_dir = os.getcwd()
+        # changing to computation dir
+        os.chdir(parent_dir)
         pair_coeff = "pair_coeff * * library.meam" 
         if "H" in [atom.symbol for atom in struct.atoms]:
             pair_coeff += " Gd H interaction.meam Gd H"
@@ -38,23 +46,33 @@ class Simulator:
         outfile = os.path.join(parent_dir, "{}.out".format(prefix))
         input_file = LammpsIn(infile)
         input_file.write_file(struct, kwdict)
-        os.system("lmp -in {} > {}".format(infile, outfile))
+        os.system("/home/shaharpit/lammps/lammps-23Jun2022/src/lmp_mpi -in {} > {}".format(infile, outfile))
+        # subprocess.Popen("/home/shaharpit/lammps/lammps-23Jun2022/src/lmp_mpi -in {} > {}".format(infile, outfile), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        # returning to previous directory
+        os.chdir(current_dir)
+
+    def _serializable_single_run(self, args):
+        struct, prefix, parent_dir = args
+        self.single_run(struct, prefix, parent_dir)
 
     def get_updated_potentials(self, variables: List[Variable]):
         potentials = []
         for potential in self.potentials:
             new = copy(potential)
             for variable in variables:
-                if variable.potential == new.name and hasattr(new, self.name):
-                    new.__setattr__(self.name, self.value)
+                if variable.potential.name == new.name and hasattr(new, variable.name):
+                    new.__setattr__(variable.name, variable.value)
             potentials.append(new)
         return potentials
 
     def run(self, structs: Dict[str, Structure], variables: List[Variable], parent_dir: str):
         potentials = self.get_updated_potentials(variables)
         self._write_potential_files(potentials, parent_dir)
-        for name, struct in structs.items():
-            self.single_run(struct, name)
+        with Pool(self.nworkers) as pool:
+            args = [(struct, name, parent_dir) for name, struct in structs.items()]
+            pool.map(self._serializable_single_run, args)
+        # for name, struct in structs.items():
+        #     self.single_run(struct, name, parent_dir)
 
     @staticmethod
     def _write_potential_files(potentials, parent_dir):
@@ -113,13 +131,16 @@ class Simulator:
                 forces[i, j] = fxyzs[i][j]
         return forces
 
-    def get_energies(self, parent_dir: str) -> Dict[str, float]:
-        """Method to get the energy outputs from a simulation"""
+    def get_relative_energies(self, parent_dir: str) -> Dict[str, float]:
+        """Method to get the relative energy of outputs from a simulation"""
         ajr = {}
+        # extract total energies from files
         for fname in os.listdir(parent_dir):
             if fname.endswith(".out"):
                 name = os.path.splitext(fname)[0]
                 ajr[name] = self.parse_lammps_output(os.path.join(parent_dir, name + ".out"))
+        # get relative energy dictionary
+        ajr = calculate_relative_energies(ajr)
         return ajr
 
     def get_forces(self, parent_dir: str) -> Dict[str, np.array]:

@@ -1,5 +1,5 @@
 """Main utils file for fitting 2NN-MEAM potetial for the Gd-H system"""
-import sys; sys.path.append("C:\\Users\\asaf\\Documents\\GitHub\\TorinaX")
+import sys; sys.path.append("/home/shaharpit/Personal/TorinaX")
 from torinax.utils import pymatgen as pmt_utils
 from torinax.io import LammpsIn
 from pymatgen.core import Structure
@@ -7,6 +7,14 @@ import numpy as np
 from typing import List
 import json
 import os
+from itertools import product
+
+
+def print_msg(msg: str, sep: str="="):
+    l = len(msg) + 10
+    print(sep * l)
+    print(" " * 5 + msg)
+    print(sep * l)
 
 def run_lammps(struct, infile: str, outfile: str, name: str) -> dict:
     """Method to run LAMMPS calculation for a specific material.
@@ -30,7 +38,7 @@ def run_lammps(struct, infile: str, outfile: str, name: str) -> dict:
                                         ])}
     input_file = LammpsIn(infile)
     input_file.write_file(struct, kwdict)
-    os.system("lmp -in {} > {}".format(infile, outfile))
+    os.system("/home/shaharpit/lammps/lammps-23Jun2022/src/lmp_mpi -in {} > {}".format(infile, outfile))
 
 def parse_lammps_output(lmp_file: str) -> float:
     """Method to read energy value and atomic forces from LAMMPS output"""
@@ -136,6 +144,25 @@ def make_hydride(struct: Structure, positions: List[np.array]):
         nstruct.append("H", pos, coords_are_cartesian=True)
     return nstruct
 
+
+def calculate_relative_energies(output_dictionary: dict) -> dict:
+    """Get the relative energy dictionary from the output dictionary of a simulator / DFT run.
+    this dictionary is given as {'{phase}_{h_conc}_{scale}': total_energy}. this method converts the total energy into relative energy (compared to the minimum energy of phase-h_conc combo."""
+    phases = ["fcc", "hcp"]
+    concs = [25, 50, 75, 100, 125]
+    # going through the dictionary to find minimal values
+    min_values = {"{}_{}".format(phase, conc): 1000 for phase, conc in product(phases, concs)}
+    for key, value in output_dictionary.items():
+        for family, min_value in min_values.items():
+            if family in key and value < min_value:
+                min_values[family] = value
+    # updating dictionary based on minimal values
+    res = {}
+    for key, value in output_dictionary.items():
+        for family, min_value in min_values.items():
+            if family in key:
+                res[key] = value - min_value
+    return res
 
 
 if __name__ == "__main__":

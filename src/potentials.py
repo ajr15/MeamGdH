@@ -56,20 +56,21 @@ class EmbeddedAtomInteractionPotential:
     """Object for handling the LAMMPS MEAM potential for interactions"""
 
     name: str           # potential name
-    latttce: str        # lattice of the binary reference structure of the 2 elements
+    lattce: str        # lattice of the binary reference structure of the 2 elements
     Ec: float           # cohesive energy of ref binary structure
+    alpha: float        # alpha parameter of ref binary structure (calculated by bulk modulus)
     re11: float         # nearest distance between element 1 and element 1 in ref binary structure
     re12: float         # nearest distance between element 1 and element 2 in ref binary structure
     re22: float         # nearest distance between element 2 and element 2 in ref binary structure
     delr: float=0.1     # smoothing length of cutoff function
-    Cmax111: float=2.8  # Cmax screening parameter of between 2 element 1 atoms screened by another element 1
-    Cmax112: float=2.8  # Cmax screening parameter of between 2 element 1 atoms screened by another element 2
-    Cmax121: float=2.8  # Cmax screening parameter of between element 1 and element 2 atoms screened by another element 1
-    Cmax122: float=2.8  # Cmax screening parameter of between element 1 and element 2 atoms screened by another element 2
-    Cmin111: float=2.8  # Cmin screening parameter of between 2 element 1 atoms screened by another element 1
-    Cmin112: float=2.8  # Cmin screening parameter of between 2 element 1 atoms screened by another element 2
-    Cmin121: float=2.8  # Cmin screening parameter of between element 1 and element 2 atoms screened by another element 1
-    Cmin122: float=2.8  # Cmin screening parameter of between element 1 and element 2 atoms screened by another element 2
+    Cmax121: float=2.8  # Cmax screening parameter of between 2 element 1 atoms screened by another element 1
+    Cmax122: float=2.8  # Cmax screening parameter of between 2 element 1 atoms screened by another element 2
+    Cmax112: float=2.8  # Cmax screening parameter of between element 1 and element 2 atoms screened by another element 1
+    Cmax221: float=2.8  # Cmax screening parameter of between element 1 and element 2 atoms screened by another element 2
+    Cmin121: float=2    # Cmin screening parameter of between 2 element 1 atoms screened by another element 1
+    Cmin122: float=2    # Cmin screening parameter of between 2 element 1 atoms screened by another element 2
+    Cmin112: float=2    # Cmin screening parameter of between element 1 and element 2 atoms screened by another element 1
+    Cmin221: float=2    # Cmin screening parameter of between element 1 and element 2 atoms screened by another element 2
 
     def to_json(self, path: str):
         """Method to save the potential to a json file"""
@@ -77,7 +78,7 @@ class EmbeddedAtomInteractionPotential:
             json.dump(self.__dict__, f)
 
     @staticmethod
-    def from_json(path: str):
+    def from_json(path: str):       
         """Method to load the potential from a json file"""
         with open(path, "r") as f:
             d = json.load(f)
@@ -86,11 +87,17 @@ class EmbeddedAtomInteractionPotential:
     def get_name(self, key: str):
         """Method to get proper name of a key"""
         if "re" in key:
-            return "re({})".format(",".join(key[3:]))
+            return "re({})".format(",".join(key[2:]))
         elif "Cmax" in key:
             return "Cmax({})".format(",".join(key[4:]))
         elif "Cmin" in key:
             return "Cmin({})".format(",".join(key[4:]))
+        elif key == "Ec":
+            return "Ec(1, 2)"
+        elif key == "alpha":
+            return "alpha(1, 2)"
+        elif key == "lattce":
+            return "lattce(1, 2)"
         else:
             return key
 
@@ -99,6 +106,8 @@ class EmbeddedAtomInteractionPotential:
         """Method to write the potential to string (to be written in LAMMPS files)"""
         res = ""
         for k, v in self.__dict__.items():
+            if k == "name": 
+                continue
             if type(v) is str:
                 s = "'{}'".format(v)
             else:

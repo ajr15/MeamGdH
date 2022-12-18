@@ -1,4 +1,5 @@
 from typing import List, Union
+import numpy as np
 from dataclasses import dataclass
 from .potentials import EmbeddedAtomElementPotential, EmbeddedAtomInteractionPotential
 
@@ -16,6 +17,10 @@ class Variable:
 
     def set_value(self, value: float):
         self.value = value
+
+    def random_init(self):
+        """set a random value (within the limits)"""
+        self.value = np.random.rand() * (self.max_value - self.min_value) + self.min_value
 
     def __eq__(self, obj):
         if isinstance(obj, Variable):

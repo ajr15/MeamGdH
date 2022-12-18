@@ -1,0 +1,7 @@
+#!/bin/bash
+#SBATCH -n 16
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+
+rm -r ../opt/*
+/home/shaharpit/miniconda3/envs/pymatgen/bin/python optimize_parameters.py

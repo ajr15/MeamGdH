@@ -7,6 +7,9 @@ __pycache__/
 *opt*/
 # ignore results directory 
 results/
+# ignore log files
+stdout.txt
+stderr.txt
 
 # C extensions
 *.so

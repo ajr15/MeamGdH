@@ -1,15 +1,17 @@
 &CONTROL
-	pseudo_dir='/home/shaharpit/AcHProject/meam_fit/dft/qe_potentials',
+	pseudo_dir='/home/shaharpit/MeamGdH/dft/qe_potentials/',
 	outdir='/home/shaharpit/tmp',
-	calculation='relax',
+	calculation='scf',
 	nstep=150,
-	prefix=2241,
+	prefix=2341,
 /
 
 &SYSTEM
 	occupations='smearing',
 	degauss=0.01,
 	ecutwfc=50,
+	lspinorb=.TRUE,
+	noncolin=.TRUE,
 	ibrav=0,
 	nat=2,
 	ntyp=1,
@@ -28,8 +30,8 @@
 /
 
 ATOMIC_SPECIES
-Gd 157.25 Gd.GGA-PBE-paw-v1.0.UPF
-H 1.00794 H.pbe-rrkjus_psl.1.0.0.UPF
+Gd 157.25 Gd.rel-pbe-spdn-kjpaw_psl.1.0.0.UPF
+H 1.00794 H.pbe-kjpaw_psl.0.1.UPF
 
 ATOMIC_POSITIONS crystal
 Gd 0.6667 0.3333 0.75

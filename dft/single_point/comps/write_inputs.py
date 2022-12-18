@@ -10,6 +10,7 @@ kwdict = {
     	"pseudo_dir": '/home/shaharpit/MeamGdH/dft/qe_potentials/',
     	"outdir": '/home/shaharpit/tmp',
     	"calculation": 'scf',
+        "tprnfor": True,
       "nstep": 150
       },
   "SYSTEM": {
@@ -38,15 +39,17 @@ kwdict = {
 
 
 if __name__ == "__main__":
-    for fname in os.listdir("../structs"):
+    parent = "/home/shaharpit/MeamGdH/dft/single_point"
+    for fname in os.listdir("{}/structs".format(parent)):
         if fname.endswith(".cif") and not fname.startswith("naked"):
             name = os.path.splitext(fname)[0]
             print(name)
-            struct = Structure.from_file(os.path.join("../structs", fname))
+            struct = Structure.from_file(os.path.join("{}/structs".format(parent), fname))
             V = struct.volume
             for scale in [0.9, 1, 1.1]:
                 struct.scale_lattice(scale * V)
-                infile = QeIn("./{}_{}.in".format(name, scale))
+                infile = QeIn("{}/comps/{}_{}.in".format(parent, name, scale))
+                struct.to("cif", os.path.join(parent, "cifs", "{}/comps/cifs/{}_{}.cif".format(parent, name, scale)))
                 infile.write_file(pmt_struct_to_structure(struct), kwdict)
 
 

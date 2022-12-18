@@ -1,0 +1,45 @@
+&CONTROL
+	pseudo_dir='/home/shaharpit/MeamGdH/dft/qe_potentials/',
+	outdir='/home/shaharpit/tmp',
+	calculation='scf',
+	nstep=150,
+	prefix=2343,
+/
+
+&SYSTEM
+	occupations='smearing',
+	degauss=0.01,
+	ecutwfc=50,
+	lspinorb=.TRUE,
+	noncolin=.TRUE,
+	ibrav=0,
+	nat=1,
+	ntyp=1,
+/
+
+&ELECTRONS
+	adaptive_thr=.TRUE,
+	electron_maxstep=500,
+/
+ 
+&IONS
+	ion_dynamics='bfgs',
+/
+
+&CELL
+/
+
+ATOMIC_SPECIES
+H 1.00794 H.pbe-kjpaw_psl.0.1.UPF
+
+ATOMIC_POSITIONS crystal
+H 0.0 0.0 0.0
+
+
+K_POINTS automatic
+	4 4 4 0 0 0 
+
+CELL_PARAMETERS {angstrom}
+	10 0.0 0.0 
+	0.0 10 0.0 
+	0.0 0.0 10

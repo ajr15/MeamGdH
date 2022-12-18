@@ -2,8 +2,9 @@
 	pseudo_dir='/home/shaharpit/MeamGdH/dft/qe_potentials/',
 	outdir='/home/shaharpit/tmp',
 	calculation='scf',
+	tprnfor=.TRUE,
 	nstep=150,
-	prefix=2314,
+	prefix=2418,
 /
 
 &SYSTEM

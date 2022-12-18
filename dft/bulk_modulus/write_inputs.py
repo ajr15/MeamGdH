@@ -6,28 +6,28 @@ from torinax.utils.pymatgen import pmt_struct_to_structure
 
 kwdict = {
   "CONTROL": {
-    	"pseudo_dir": '/home/shaharpit/AcHProject/meam_fit/dft/qe_potentials',
+    	"pseudo_dir": '/home/shaharpit/MeamGdH/dft/qe_potentials/',
     	"outdir": '/home/shaharpit/tmp',
-    	"calculation": 'relax',
+    	"calculation": 'scf',
       "nstep": 150
       },
   "SYSTEM": {
   	  "occupations": 'smearing',
   	  "degauss": 0.01,
-      "ecutwfc": 50
+      "ecutwfc": 50,
+      "lspinorb": True,
+      "noncolin": True
      },
   "IONS": {
       "ion_dynamics": 'bfgs',
      },
   "ATOMIC_SPECIES": {
-      "Gd": "Gd.GGA-PBE-paw-v1.0.UPF",
-      "H": "H.pbe-rrkjus_psl.1.0.0.UPF",
+      "Gd": "Gd.rel-pbe-spdn-kjpaw_psl.1.0.0.UPF",
+      "H": "H.pbe-kjpaw_psl.0.1.UPF",
       },
   'ELECTRONS': {
       'adaptive_thr': True,
       'electron_maxstep': 500, 
-      #'mixing_beta': 0.3, 
-      #'mixing_mode': 'local-TF'
       },
   'K_POINTS': {
       'type': 'automatic', 
@@ -38,7 +38,7 @@ kwdict = {
 def make_inputs(struct: Structure, kwds_dict: dict, prefix: str):
     V = struct.volume
     # writing inputs with scaling
-    scalars = [0.8, 0.9, 1, 1.1, 1.2]
+    scalars = [0.8, 0.9, 0.95, 1, 1.05, 1.1, 1.2]
     for s in scalars:
         print("Writing with {}".format(s))
         struct.scale_lattice(s * V)
